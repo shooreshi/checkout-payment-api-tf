@@ -10,7 +10,7 @@ provider "azurerm" {
 
 resource "azurerm_resource_group" "payment-api" {
     name = "payment-api-rg"
-    location = "uksouth"
+    location = "westeurope"
 }
 
 resource "azurerm_kubernetes_cluster" "payment-api" {
