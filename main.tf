@@ -32,7 +32,7 @@ resource "azurerm_kubernetes_cluster" "payment-api" {
 }
 
 resource "azurerm_kubernetes_cluster_node_pool" "payment-api" {
-  name                  = "paymentClstr"
+  name                  = "paymentcstr"
   kubernetes_cluster_id = azurerm_kubernetes_cluster.payment-api.id
   vm_size               = "Standard_DS2_v2"
   node_count            = 1
