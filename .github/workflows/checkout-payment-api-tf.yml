@@ -1,5 +1,4 @@
 name: 'checkout-payment-api-tf'
-
 on:
   push:
     branches: [ master ]
