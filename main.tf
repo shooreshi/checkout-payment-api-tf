@@ -14,8 +14,8 @@ data "azurerm_resource_group" "resourcegroup" {
 
 resource "azurerm_kubernetes_cluster" "payment-api" {
   name                = "paymentapiaks"
-  location            = azurerm_resource_group.resourcegroup.location
-  resource_group_name = azurerm_resource_group.resourcegroup.name
+  location            = data.azurerm_resource_group.resourcegroup.location
+  resource_group_name = data.azurerm_resource_group.resourcegroup.name
   dns_prefix          = "paymentapiaks"
 
   default_node_pool {
