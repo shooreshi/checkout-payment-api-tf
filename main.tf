@@ -8,16 +8,15 @@ provider "azurerm" {
   skip_provider_registration = true
 }
 
-resource "azurerm_resource_group" "payment-api" {
-    name = "payment-api-rg"
-    location = "westeurope"
+data "azurerm_resource_group" "resourcegroup" {
+  name = "payment-api-rg-paymentapiaks"
 }
 
 resource "azurerm_kubernetes_cluster" "payment-api" {
-  name                = "paymentApiAks1"
-  location            = azurerm_resource_group.payment-api.location
-  resource_group_name = azurerm_resource_group.payment-api.name
-  dns_prefix          = "paymentapiaks1"
+  name                = "paymentapiaks"
+  location            = azurerm_resource_group.resourcegroup.location
+  resource_group_name = azurerm_resource_group.resourcegroup.name
+  dns_prefix          = "paymentapiaks"
 
   default_node_pool {
     name       = "default"
